@@ -10,10 +10,12 @@ public class TestSpring {
 
                 "applicationContext.xml");
         //bean id="testBean" and class obj we want to receive
-        Music music = context.getBean("musicBean", Music.class);
+        //Music music = context.getBean("musicBean", Music.class); we made this bean in XML
         //inject dependancy
-        MusicPlayer musicPlayer = new MusicPlayer(music);
+        //MusicPlayer musicPlayer = new MusicPlayer(music);
 
+        //Get from context Constructors injections
+        MusicPlayer musicPlayer= context.getBean("musicPlayer",MusicPlayer.class);
         musicPlayer.playMusic();
         //close app after the finish
         context.close();
