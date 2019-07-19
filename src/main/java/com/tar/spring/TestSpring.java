@@ -10,8 +10,11 @@ public class TestSpring {
 
                 "applicationContext.xml");
         //bean id="testBean" and class obj we want to receive
-        TestBean testBean = context.getBean("testBean", TestBean.class);
-        System.out.println(testBean.getName());
+        Music music = context.getBean("musicBean", Music.class);
+        //inject dependancy
+        MusicPlayer musicPlayer = new MusicPlayer(music);
+
+        musicPlayer.playMusic();
         //close app after the finish
         context.close();
     }
