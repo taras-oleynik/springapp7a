@@ -1,6 +1,6 @@
 package com.tar.spring;
 
-public class RepMusick implements Music{
+public class RepMusic implements Music{
     @Override
     public String getSong() {
         return "Gansta Paradice";
