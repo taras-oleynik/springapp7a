@@ -15,12 +15,20 @@ public class TestSpring {
         //MusicPlayer musicPlayer = new MusicPlayer(music);
 
         //Get from context Constructors injections
-        MusicPlayer musicPlayer= context.getBean("musicPlayer",MusicPlayer.class);
-        musicPlayer.playMusic();
+        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer",MusicPlayer.class);
+        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer",MusicPlayer.class);
+       // MusicPlayer musicPlayer= context.getBean("musicPlayer",MusicPlayer.class);
+        //musicPlayer.playMusic();
 
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
+        //System.out.println(musicPlayer.getName());
+        //System.out.println(musicPlayer.getVolume());
         //close app after the finish
+// by default single tone that's why it trigers the same object, if scope="prototype"
+        boolean compare = firstMusicPlayer== secondMusicPlayer;
+        firstMusicPlayer.setVolume(45);
+        System.out.println(firstMusicPlayer.getVolume());
+        System.out.println(secondMusicPlayer.getVolume());
+        System.out.println(compare);
         context.close();
     }
 }

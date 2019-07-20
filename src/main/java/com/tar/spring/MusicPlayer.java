@@ -5,14 +5,14 @@ import java.util.List;
 
 // inversial control class
 public class MusicPlayer {
-    // private Music music;
+    private Music music;
     private String name;
     private int volume;
-    private List<Music> musicList = new ArrayList<>();
+    //private List<Music> musicList = new ArrayList<>();
 
-    public void setMusicList(List<Music> musicList) {
+   /* public void setMusicList(List<Music> musicList) {
         this.musicList = musicList;
-    }
+    }*/
 
     public String getName() {
         return name;
@@ -40,15 +40,15 @@ public class MusicPlayer {
     }*/
 
 
-//spring gets this method by converting setMusic into music
-   /* public void setMusic(Music music) {
+    //spring gets this method by converting setMusic into music
+    public void setMusic(Music music) {
         this.music = music;
-    }*/
+    }
 
     public void playMusic() {
-        for (int i = 0; i < musicList.size(); i++) {
-            System.out.println("Now playing: " + musicList.get(i).getSong());
-        }
+
+        System.out.println("Now playing: " + music.getSong());
+
 
     }
 }
