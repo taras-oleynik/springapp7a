@@ -10,8 +10,5 @@
         <module name="springapp1" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring-app1" target="1.7" />
-    </bytecodeTargetLevel>
   </component>
 </project>
