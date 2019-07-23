@@ -1,39 +1,25 @@
 package com.tar.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
-/*   // @Autowired    via field
-    private Music music;
-
-
-    // @Autowired    constrictor
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
-
-
-    //@Autowired   via setter
-    public void setMusicPlayer(Music music) {
-
-        this.music = music;
-
-    }*/
-
-    private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
+    /*  @Autowired
+      @Qualifier("classicalMusic")*/
+    private Music music1;
+    private Music music2;
 
     @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    public MusicPlayer(@Qualifier("rockMusic") Music music1,
+                       @Qualifier("classicalMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
     }
 
     public String playMusic() {
-        return "Now playing: " + classicalMusic.getSong();
-
+        return "Now playing: " + music1.getSong() + ", " + music2.getSong();
 
 
     }
