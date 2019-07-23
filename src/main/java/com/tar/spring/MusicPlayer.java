@@ -1,53 +1,39 @@
 package com.tar.spring;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-// inversial control class
+@Component
 public class MusicPlayer {
+/*   // @Autowired    via field
     private Music music;
-    private String name;
-    private int volume;
-    //private List<Music> musicList = new ArrayList<>();
-
-   /* public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }*/
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public MusicPlayer() {
-    }
 
 
-    //polimorphism here Ioc constracter dependenciy
-  /*  public MusicPlayer(Music music) {
-        this.music = music;
-    }*/
-
-
-    //spring gets this method by converting setMusic into music
-    public void setMusic(Music music) {
+    // @Autowired    constrictor
+    public MusicPlayer(Music music) {
         this.music = music;
     }
 
-    public void playMusic() {
 
-        System.out.println("Now playing: " + music.getSong());
+    //@Autowired   via setter
+    public void setMusicPlayer(Music music) {
+
+        this.music = music;
+
+    }*/
+
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
+
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
+    }
+
+    public String playMusic() {
+        return "Now playing: " + classicalMusic.getSong();
+
 
 
     }
